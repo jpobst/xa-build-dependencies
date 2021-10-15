@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>xa-build-dependencies</PackageId>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Title>Xamarin.Legacy.OpenTK</Title>
+    <Summary>Unlisted package used to run tests in Xamarin.Android without pulling in debugger-libs/nrefactory sources.</Summary>
+    <PackageProjectUrl>https://github.com/jpobst/xa-build-dependencies</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)../nupkg</PackageOutputPath>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb;$(AllowedOutputExtensionsInPackageBuildOutputFolder)</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\external\debugger-libs\Mono.Debugger.Soft\Mono.Debugger.Soft.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\external\debugger-libs\Mono.Debugging.Soft\Mono.Debugging.Soft.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\external\debugger-libs\Mono.Debugging\Mono.Debugging.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\external\nrefactory\ICSharpCode.NRefactory.CSharp\ICSharpCode.NRefactory.CSharp.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\external\nrefactory\ICSharpCode.NRefactory\ICSharpCode.NRefactory.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\external\debugger-libs\Mono.Debugger.Soft\bin\$(Configuration)\net472\Mono.Debugger.Soft.dll" Pack="True" PackagePath="lib/net472" />
+    <None Include="..\external\debugger-libs\Mono.Debugging.Soft\bin\$(Configuration)\net472\Mono.Debugging.Soft.dll" Pack="True" PackagePath="lib/net472" />
+    <None Include="..\external\debugger-libs\Mono.Debugging\bin\$(Configuration)\net472\Mono.Debugging.dll" Pack="True" PackagePath="lib/net472" />
+    <None Include="..\external\nrefactory\ICSharpCode.NRefactory.CSharp\bin\$(Configuration)\net40\ICSharpCode.NRefactory.CSharp.dll" Pack="True" PackagePath="lib/net472" />
+    <None Include="..\external\nrefactory\ICSharpCode.NRefactory\bin\$(Configuration)\net40\ICSharpCode.NRefactory.dll" Pack="True" PackagePath="lib/net472" />
+  </ItemGroup>
+</Project>
